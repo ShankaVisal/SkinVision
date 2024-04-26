@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "374964214861",
+    "project_id": "skinvision-355f9",
+    "storage_bucket": "skinvision-355f9.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:374964214861:android:1526f5b3e7ef031bf5d004",
+        "android_client_info": {
+          "package_name": "com.example.untitled5"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAbcMRrDxJtefg7Gs-RCBkmOcm69vYerS4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
