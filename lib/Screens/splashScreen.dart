@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
+import 'package:untitled5/Screens/SecondScreen.dart';
 
 class splashScreen extends StatefulWidget {
   const splashScreen({super.key});
@@ -10,6 +11,16 @@ class splashScreen extends StatefulWidget {
 }
 
 class _splashScreenState extends State<splashScreen> {
+
+  void initState() {
+    super.initState();
+    Future.delayed(Duration(seconds: 2), () {
+      Navigator.push(
+        context,
+        MaterialPageRoute(builder: (context) => splashSecond()),
+      );
+    });
+  }
   @override
   Widget build(BuildContext context) {
     double height = MediaQuery.of(context).size.height;
