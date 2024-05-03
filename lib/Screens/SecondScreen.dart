@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:untitled5/loginScreen.dart';
 
 class splashSecond extends StatefulWidget {
   const splashSecond({super.key});
@@ -70,7 +71,9 @@ class _splashSecondState extends State<splashSecond> {
                 child: FloatingActionButton(
                   shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(30)),
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.push(context, MaterialPageRoute(builder: (context)=>loginScreen()));
+                  },
                   backgroundColor: Colors.white,
                   child: Text("Get Started"),
                 ),
