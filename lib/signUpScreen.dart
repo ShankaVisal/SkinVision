@@ -1,6 +1,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:untitled5/controllers/auth.dart';
+import 'package:untitled5/home_screen_page.dart';
 
 import 'loginScreen.dart';
 
@@ -34,8 +35,8 @@ class _signupScreenState extends State<signupScreen> {
       //await user?.sendEmailVerification();
 
       // ignore: use_build_context_synchronously
-      /*Navigator.pushReplacement(
-          context, MaterialPageRoute(builder: (context) => const HomePage()));*/
+      Navigator.pushReplacement(
+          context, MaterialPageRoute(builder: (context) => const HomeScreenPage()));
     } on FirebaseAuthException catch (e) {
       setState(() {
         errorMessage = e.message;

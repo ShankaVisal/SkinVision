@@ -3,6 +3,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:untitled5/controllers/auth.dart';
+import 'package:untitled5/home_screen_page.dart';
 import 'package:untitled5/signUpScreen.dart';
 
 class loginScreen extends StatefulWidget {
@@ -30,8 +31,8 @@ class _loginScreenState extends State<loginScreen> {
             message: 'Email verification required.');
       }
       // ignore: use_build_context_synchronously
-      /*Navigator.pushReplacement(
-          context, MaterialPageRoute(builder: (context) => const HomePage()));*/
+      Navigator.pushReplacement(
+          context, MaterialPageRoute(builder: (context) => const HomeScreenPage()));
     } on FirebaseAuthException catch (e) {
       setState(() {
         errorMessage = e.message;
