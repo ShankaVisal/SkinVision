@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:untitled5/Pages/loginScreen.dart';
 
+
 class splashSecond extends StatefulWidget {
   const splashSecond({super.key});
 

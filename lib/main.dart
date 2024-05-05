@@ -4,6 +4,7 @@ import 'package:untitled5/Screens/splashScreen.dart';
 import 'package:untitled5/controllers/firebase_options.dart';
 import 'package:untitled5/Pages/home_screen_page.dart';
 
+
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp(
