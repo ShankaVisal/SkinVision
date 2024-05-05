@@ -3,8 +3,8 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:untitled5/controllers/auth.dart';
-import 'package:untitled5/home_screen_page.dart';
-import 'package:untitled5/signUpScreen.dart';
+import 'package:untitled5/Pages/home_screen_page.dart';
+import 'package:untitled5/Pages/signUpScreen.dart';
 
 class loginScreen extends StatefulWidget {
   const loginScreen({super.key});
