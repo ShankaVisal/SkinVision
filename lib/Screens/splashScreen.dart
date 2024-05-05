@@ -14,10 +14,12 @@ class _splashScreenState extends State<splashScreen> {
 
   void initState() {
     super.initState();
-    Future.delayed(Duration(seconds: 2), () {
+
+    Future.delayed(const Duration(seconds: 4), () {
+
       Navigator.push(
         context,
-        MaterialPageRoute(builder: (context) => splashSecond()),
+        MaterialPageRoute(builder: (context) => const splashSecond()),
       );
     });
   }
@@ -32,7 +34,8 @@ class _splashScreenState extends State<splashScreen> {
           SizedBox(
             height: height,
             width: width,
-            child: Image(image: AssetImage('assets/splashscreen.png')),
+            child: const Image(image: AssetImage('assets/1.png')),
+
           ),
           Positioned(
             bottom: height * 0.01,
@@ -47,9 +50,8 @@ class _splashScreenState extends State<splashScreen> {
           SizedBox(
             height: height,
             width: width*0.55,
-            child: Image(image: AssetImage('assets/logo.png')),
+            child: const Image(image: AssetImage('assets/logo.png')),
           ),
-
         ],
       ),
     );
