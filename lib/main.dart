@@ -1,5 +1,6 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:untitled5/Pages/skin_scan_page.dart';
 import 'package:untitled5/Screens/splashScreen.dart';
 import 'package:untitled5/controllers/firebase_options.dart';
 import 'package:untitled5/Pages/home_screen_page.dart';
@@ -25,7 +26,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: const Color.fromARGB(255, 239, 168, 133)),
         useMaterial3: true,
       ),
-      home: const  HomeScreenPage()/*splashScreen()*/,
+      home: const  SkinScanPage()/*HomeScreenPage()*/ /*splashScreen()*/,
     );
   }
 }
