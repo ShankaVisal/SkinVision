@@ -74,6 +74,7 @@ flutter:
     - assets/google.png
     - assets/facebook.png
     - assets/apple.png
+    - assets/doctors.json
 
     - assets/Logowithout_theme.png
     - assets/homePageImage.png
