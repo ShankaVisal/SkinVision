@@ -15,7 +15,9 @@ class _splashScreenState extends State<splashScreen> {
   void initState() {
     super.initState();
 
-    Future.delayed(Duration(seconds: 4), () {
+
+    Future.delayed(const Duration(seconds: 4), () {
+
 
       Navigator.push(
         context,
@@ -34,7 +36,9 @@ class _splashScreenState extends State<splashScreen> {
           SizedBox(
             height: height,
             width: width,
-            child: Image(image: AssetImage('assets/1.png')),
+
+            child: const Image(image: AssetImage('assets/1.png')),
+
 
           ),
           Positioned(
