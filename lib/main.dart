@@ -1,9 +1,14 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+
 import 'package:untitled5/Pages/dermatologistsPage.dart';
+
+import 'package:untitled5/Pages/skin_scan_page.dart';
+
 import 'package:untitled5/Screens/splashScreen.dart';
 import 'package:untitled5/controllers/firebase_options.dart';
 import 'package:untitled5/Pages/home_screen_page.dart';
+
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -26,6 +31,7 @@ class MyApp extends StatelessWidget {
         useMaterial3: true,
       ),
       home: const  dermatologistsPage()/*splashScreen()*/,
+
     );
   }
 }

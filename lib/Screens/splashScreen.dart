@@ -16,7 +16,9 @@ class _splashScreenState extends State<splashScreen> {
     super.initState();
 
 
+
     Future.delayed(const Duration(seconds: 4), () {
+
 
 
       Navigator.push(
@@ -37,7 +39,9 @@ class _splashScreenState extends State<splashScreen> {
             height: height,
             width: width,
 
+
             child: const Image(image: AssetImage('assets/1.png')),
+
 
 
           ),

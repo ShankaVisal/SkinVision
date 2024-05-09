@@ -75,18 +75,22 @@ flutter:
     - assets/facebook.png
     - assets/apple.png
     - assets/doctors.json
-
     - assets/Logowithout_theme.png
     - assets/homePageImage.png
     - assets/IconImages/Dermetalogist_Icon.png
     - assets/IconImages/Go_Premium_Icon.png
     - assets/IconImages/Product_Catalog_Icon.png
     - assets/IconImages/scan_Icon.png
+    - assets/IconImages/userIcon.png
+    - assets/IconImages/notificationIcon.png
+    - assets/IconImages/infoIcon.png
+    - assets/IconImages/HomeIcon.png
    
 
 
 
    
+  #   - images/a_dot_ham.jpeg
 
 
   # An image asset can refer to one or more resolution-specific "variants", see
