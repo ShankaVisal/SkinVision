@@ -74,6 +74,7 @@ flutter:
     - assets/google.png
     - assets/facebook.png
     - assets/apple.png
+    - assets/doctors.json
     - assets/Logowithout_theme.png
     - assets/homePageImage.png
     - assets/IconImages/Dermetalogist_Icon.png
@@ -90,6 +91,7 @@ flutter:
 
    
   #   - images/a_dot_ham.jpeg
+
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware
