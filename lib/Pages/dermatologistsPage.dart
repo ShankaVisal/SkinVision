@@ -3,14 +3,14 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
-class dermatologistsPage extends StatefulWidget {
-  const dermatologistsPage({super.key});
+class DermatologistsPage extends StatefulWidget {
+  const DermatologistsPage({super.key});
 
   @override
-  State<dermatologistsPage> createState() => _dermatologistsPageState();
+  State<DermatologistsPage> createState() => _DermatologistsPageState();
 }
 
-class _dermatologistsPageState extends State<dermatologistsPage> {
+class _DermatologistsPageState extends State<DermatologistsPage> {
   final TextEditingController name = TextEditingController();
   List<dynamic> doctors = [];
 

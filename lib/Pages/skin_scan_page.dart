@@ -1,4 +1,4 @@
-import 'package:flutter/cupertino.dart';
+/*import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class SkinScanPage extends StatefulWidget {
@@ -20,15 +20,9 @@ class _SkinScanPageState extends State<SkinScanPage> {
             child: Align(
               alignment: Alignment.topCenter,
               child: CupertinoSlidingSegmentedControl<int>(
-                children: const {
-                  0: Text(
-                    'Normal',
-                    style: TextStyle(fontSize: 14),
-                  ),
-                  1: Text(
-                    'Disease',
-                    style: TextStyle(fontSize: 14),
-                  ),
+                children: {
+                  0: Container(color: Colors.amberAccent,),
+                  1: Container(color: Colors.blueAccent,),
                 },
                 onValueChanged: (int? index) {
                   if (index != null) {
@@ -99,4 +93,98 @@ class _SkinScanPageState extends State<SkinScanPage> {
       ),
     );
   }
+}
+*/
+
+
+
+import 'package:camera/camera.dart';
+import 'package:flutter/material.dart';
+
+class SkinScanPage extends StatefulWidget {
+  const SkinScanPage({Key? key}) : super(key: key);
+
+  @override
+  State<SkinScanPage> createState() => _SkinScanPageState();
+}
+
+class _SkinScanPageState extends State<SkinScanPage> with TickerProviderStateMixin {
+  late TabController _tabController;
+  late List<CameraDescription> _cameras;
+  late CameraController _cameraController;
+  Future<void>? _initializeControllerFuture;
+
+  @override
+  void initState() {
+    super.initState();
+    _tabController = TabController(length: 2, vsync: this);
+    _initializeCamera();
+  }
+
+  Future<void> _initializeCamera() async {
+    // Obtain a list of available cameras
+    _cameras = await availableCameras();
+    // Initialize the camera controller
+    _cameraController = CameraController(
+      _cameras.first, // Use the first camera in the list
+      ResolutionPreset.medium, // Set the resolution
+    );
+    // Initialize the controller future
+    _initializeControllerFuture = _cameraController.initialize();
+  }
+
+  @override
+  void dispose() {
+    _cameraController.dispose(); // Dispose of the camera controller
+    super.dispose();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        bottom: TabBar(
+          controller: _tabController,
+          tabs: const [
+            Tab(text: 'Normal'),
+            Tab(text: 'Disease'),
+          ],
+        ),
+      ),
+      body: TabBarView(
+        controller: _tabController,
+        children: [
+          // Normal tab content
+          Center(
+            child: Text(
+              'Normal Tab Content',
+              style: TextStyle(fontSize: 20),
+            ),
+          ),
+          // Disease tab content
+          Center(
+            child: _buildCameraPreview(),
+          ),
+        ],
+      ),
+    );
+  }
+
+  Widget _buildCameraPreview() {
+  return FutureBuilder<void>(
+    future: _initializeControllerFuture,
+    builder: (context, snapshot) {
+      if (snapshot.connectionState == ConnectionState.done) {
+        // If the Future is complete, display the camera preview
+        return CameraPreview(_cameraController);
+      } else if (snapshot.hasError) {
+        // If an error occurs, display an error message
+        return Text('Error: ${snapshot.error}');
+      } else {
+        // Otherwise, display a loading indicator
+        return CircularProgressIndicator();
+      }
+    },
+  );
+}
 }

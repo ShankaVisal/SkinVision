@@ -41,6 +41,7 @@ dependencies:
 
   firebase_core: ^2.30.1
   firebase_auth: ^4.19.4
+  camera: ^0.10.6
 
 
 dev_dependencies:
@@ -70,6 +71,7 @@ flutter:
     - assets/
     - assets/2s.png
     - assets/logoWhite.png
+    - assets/logo2.png
     - assets/loginLogo.png
     - assets/google.png
     - assets/facebook.png

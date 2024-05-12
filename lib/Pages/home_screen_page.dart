@@ -1,4 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
+import 'package:untitled5/Pages/dermatologistsPage.dart';
+import 'package:untitled5/Pages/goPremiumPage.dart';
+import 'package:untitled5/Pages/productCatalogPage.dart';
+
+import 'skin_scan_page.dart';
 
 class HomeScreenPage extends StatefulWidget {
   const HomeScreenPage({super.key});
@@ -37,7 +43,7 @@ class _HomeScreenPageState extends State<HomeScreenPage> {
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: [
                   Image.asset(
-                    "assets/Logowithout_theme.png",
+                    "assets/logo2.png",
                     width: 150,
                   ),
                   Container(
@@ -61,11 +67,13 @@ class _HomeScreenPageState extends State<HomeScreenPage> {
                           mainAxisAlignment: MainAxisAlignment.spaceAround,
                           children: [
                             homePageActionTiles(
+                                context,
                                 "Skin Scan",
                                 "assets/IconImages/scan_Icon.png",
                                 Colors.black,
                                 Colors.white),
                             homePageActionTiles(
+                                context,
                                 "Dermatologists",
                                 "assets/IconImages/Dermetalogist_Icon.png",
                                 Colors.black,
@@ -77,11 +85,13 @@ class _HomeScreenPageState extends State<HomeScreenPage> {
                           mainAxisAlignment: MainAxisAlignment.spaceAround,
                           children: [
                             homePageActionTiles(
+                                context,
                                 "Product Catalog",
                                 "assets/IconImages/Product_Catalog_Icon.png",
                                 Colors.black,
                                 Colors.white),
                             homePageActionTiles(
+                                context,
                                 "Go Premium!",
                                 "assets/IconImages/Go_Premium_Icon.png",
                                 const Color.fromARGB(255, 239, 168, 133),
@@ -126,7 +136,7 @@ class _HomeScreenPageState extends State<HomeScreenPage> {
               backgroundColor: const Color.fromARGB(255, 37, 37, 37),
               onPressed: () {},
               shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(30), 
+                borderRadius: BorderRadius.circular(30),
               ),
               child: Image.asset(
                 "assets/IconImages/scan_Icon.png",
@@ -156,32 +166,64 @@ class _HomeScreenPageState extends State<HomeScreenPage> {
   }
 
   homePageActionTiles(
-      String actionTitle, String imagePath, Color color, Color borderColour) {
-    return Center(
-      child: Container(
-        width: width * 0.42,
-        height: width * 0.42,
-        decoration: BoxDecoration(
-          color: Colors.white,
-          borderRadius: BorderRadius.circular(24),
-          border: Border.all(color: borderColour, width: 1),
-        ),
-        child: Padding(
-          padding: const EdgeInsets.all(30),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.spaceAround,
-            children: [
-              Image.asset(
-                imagePath,
-                width: 50,
-                height: 50,
-                color: color,
-              ),
-              Text(
-                actionTitle,
-                style: TextStyle(fontSize: 15),
-              )
-            ],
+    BuildContext context,
+    String actionTitle,
+    String imagePath,
+    Color color,
+    Color borderColour,
+  ) {
+    return GestureDetector(
+      onTap: () {
+        // Navigate to the appropriate page based on the action title
+        if (actionTitle == "Skin Scan") {
+          Navigator.push(
+            context,
+            MaterialPageRoute(builder: (context) => const SkinScanPage()),
+          );
+        } else if (actionTitle == "Dermatologists") {
+          Navigator.push(
+            context,
+            MaterialPageRoute(builder: (context) => const DermatologistsPage()),
+          );
+        } else if (actionTitle == "Product Catalog") {
+          Navigator.push(
+            context,
+            MaterialPageRoute(builder: (context) => const ProductCatalogPage()),
+          );
+        } else if (actionTitle == "Go Premium!") {
+          Navigator.push(
+            context,
+            MaterialPageRoute(builder: (context) => const GoPremiumPage()),
+          );
+        }
+      },
+      child: Center(
+        child: Container(
+          width: MediaQuery.of(context).size.width * 0.42,
+          height: MediaQuery.of(context).size.width * 0.42,
+          decoration: BoxDecoration(
+            color: Colors.white,
+            borderRadius: BorderRadius.circular(24),
+            border: Border.all(color: borderColour, width: 1),
+          ),
+          child: Padding(
+            padding:
+                const EdgeInsets.only(top: 30, bottom: 30, left: 10, right: 10),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
+              children: [
+                Image.asset(
+                  imagePath,
+                  width: 50,
+                  height: 50,
+                  color: color,
+                ),
+                Text(
+                  actionTitle,
+                  style: const TextStyle(fontSize: 15),
+                )
+              ],
+            ),
           ),
         ),
       ),
