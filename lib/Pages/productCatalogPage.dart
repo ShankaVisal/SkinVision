@@ -60,7 +60,7 @@ class _ProductCatalogPageState extends State<ProductCatalogPage> {
                           child: TextField(
                             controller: name,
                             decoration: InputDecoration(
-                              hintText: 'Find Your Doctor',
+                              hintText: 'Find Your Product',
                               hintStyle: TextStyle(color: Colors.grey[400]),
                               suffixIcon: Icon(Icons.search, color: Colors.grey),
                               border: OutlineInputBorder(
