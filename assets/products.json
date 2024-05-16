@@ -1,0 +1,82 @@
+[
+    {
+      "id": 1,
+      "name": "Facial Cleanser",
+      "price": "2500 LKR",
+      "brand": "Cetaphil",
+      "category": "Foaming Cleanser",
+      "image": "assets/products/p1.png"
+    },
+    {
+      "id": 2,
+      "name": "Face Wash",
+      "price": "1900 LKR",
+      "brand": "Neutrogena",
+      "category": "Daily Cleanser",
+      "image": "assets/products/p2.png"
+    },
+    {
+      "id": 3,
+      "name": "Facial Cleanser",
+      "price": "3500 LKR",
+      "brand": "Clinique",
+      "category": "Deep Cleanser",
+      "image": "assets/products/p3.png"
+    },
+    {
+      "id": 4,
+      "name": "Facial Cleanser",
+      "price": "1650 LKR",
+      "brand": "CeraVe",
+      "category": "Purifying Cleanser",
+      "image": "assets/products/p4.png"
+    },
+    {
+      "id": 5,
+      "name": "Foaming Cleanser",
+      "price": "2100 LKR",
+      "brand": "La Roche-Posay",
+      "category": "Foaming Cleanser",
+      "image": "assets/products/p5.png"
+    },
+    {
+      "id": 6,
+      "name": "Gel Cleanser",
+      "price": "1800 LKR",
+      "brand": "Simple",
+      "category": "Gel Cleanser",
+      "image": "assets/products/p2.png"
+    },
+    {
+      "id": 7,
+      "name": "Daily Cleanser",
+      "price": "2700 LKR",
+      "brand": "Clean & Clear",
+      "category": "Daily Cleanser",
+      "image": "assets/products/p3.png"
+    },
+    {
+      "id": 8,
+      "name": "Cream Cleanser",
+      "price": "2250 LKR",
+      "brand": "Cetaphil",
+      "category": "Cream Cleanser",
+      "image": "assets/products/p4.png"
+    },
+    {
+      "id": 9,
+      "name": "Acne Wash",
+      "price": "1950 LKR",
+      "brand": "Neutrogena",
+      "category": "Acne Wash",
+      "image": "assets/products/p5.png"
+    },
+    {
+      "id": 10,
+      "name": "Skin Cleanser",
+      "price": "2400 LKR",
+      "brand": "CeraVe",
+      "category": "Sensitive Cleanser",
+      "image": "assets/products/p1.png"
+    }
+]

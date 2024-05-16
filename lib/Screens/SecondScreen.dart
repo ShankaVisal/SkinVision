@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-
 import 'package:untitled5/Pages/loginScreen.dart';
+
 
 
 class splashSecond extends StatefulWidget {
@@ -67,7 +67,7 @@ class _splashSecondState extends State<splashSecond> {
               height: height,
               width: width*0.55,
 
-              child: const Image(image: AssetImage('assets/logoWhite.png')),
+              child: const Image(image: AssetImage('assets/logo2.png')),
 
             ),
           ),
@@ -78,21 +78,26 @@ class _splashSecondState extends State<splashSecond> {
 
             opacity: _isVisible ? 0 : 1,
             child: Padding(
-              padding: EdgeInsets.only(top: height*0.8),
-              child: SizedBox(
-                height: 50,
-                width: 300,
-                child: FloatingActionButton(
-                  shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(30)),
-                  onPressed: () {
-
-                    Navigator.push(context, MaterialPageRoute(builder: (context)=>const loginScreen()));
-                  },
-                  backgroundColor: Colors.white,
-                  child: const Text("Get Started"),
-
-                ),
+              padding: EdgeInsets.only(top: height*0.82),
+              child: Column(
+                children: [
+                  const Text("Your Trusted AI Dermatologist",style: TextStyle(color: Colors.white,fontSize: 12),),
+                  SizedBox(
+                    height: 50,
+                    width: 300,
+                    child: FloatingActionButton(
+                      shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(30)),
+                      onPressed: () {
+                  
+                        Navigator.push(context, MaterialPageRoute(builder: (context)=>const loginScreen()));
+                      },
+                      backgroundColor: Colors.white,
+                      child: const Text("Get Started"),
+                  
+                    ),
+                  ),
+                ],
               ),
             ),
           ),

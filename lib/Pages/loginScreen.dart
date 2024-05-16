@@ -53,7 +53,7 @@ class _loginScreenState extends State<loginScreen> {
               Padding(
                 padding: EdgeInsets.only(top: height * 0.15),
                 child: Image(
-                  image: const AssetImage('assets/loginLogo.png'),
+                  image: const AssetImage('assets/logo2.png'),
                   width: width * 0.7,
                 ),
               ),
@@ -128,7 +128,8 @@ class OrangeButton extends StatelessWidget {
         borderRadius: BorderRadius.circular(25),
         color: const Color(0xffEFA885),
         child: InkWell(
-          onTap: onPressed,
+         onTap: onPressed,
+
           child: Container(
             padding: const EdgeInsets.symmetric(vertical: 16),
             alignment: Alignment.center,

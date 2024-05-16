@@ -41,6 +41,7 @@ dependencies:
 
   firebase_core: ^2.30.1
   firebase_auth: ^4.19.4
+  camera: ^0.10.6
 
 
 dev_dependencies:
@@ -70,22 +71,33 @@ flutter:
     - assets/
     - assets/2s.png
     - assets/logoWhite.png
+    - assets/logo2.png
     - assets/loginLogo.png
     - assets/google.png
     - assets/facebook.png
     - assets/apple.png
-
+    - assets/doctors.json
     - assets/Logowithout_theme.png
     - assets/homePageImage.png
     - assets/IconImages/Dermetalogist_Icon.png
     - assets/IconImages/Go_Premium_Icon.png
     - assets/IconImages/Product_Catalog_Icon.png
     - assets/IconImages/scan_Icon.png
+    - assets/IconImages/userIcon.png
+    - assets/IconImages/notificationIcon.png
+    - assets/IconImages/infoIcon.png
+    - assets/IconImages/HomeIcon.png
+    - assets/products/
+    - assets/products.json
+    - assets/cart.png
+    - assets/dermatologists/
+
    
 
 
 
    
+  #   - images/a_dot_ham.jpeg
 
 
   # An image asset can refer to one or more resolution-specific "variants", see
