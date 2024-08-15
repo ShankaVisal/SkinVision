@@ -14,14 +14,14 @@ class loginScreen extends StatefulWidget {
 }
 
 class _loginScreenState extends State<loginScreen> {
-  final TextEditingController _useremailController = TextEditingController();
-  final TextEditingController _passwordController = TextEditingController();
+  final TextEditingController _email = TextEditingController();
+  final TextEditingController _pwd = TextEditingController();
   String? errorMessage = '';
 
   Future signInWithEmailAndPassword(BuildContext context) async {
     try {
       await Auth().signInWithEmailAndPassword(
-          email: _useremailController.text, password: _passwordController.text);
+          email: _email.text, password: _pwd.text);
 
       final user = FirebaseAuth.instance.currentUser;
       if (user != null && !user.emailVerified) {
@@ -66,8 +66,8 @@ class _loginScreenState extends State<loginScreen> {
                   ),
                 ),
               ),
-              userInputs(controller: _useremailController, labelText: 'Email'),
-              userInputs(controller: _passwordController, labelText: 'Password'),
+              userInputs(controller: _email, labelText: 'Email'),
+              userInputs(controller: _pwd, labelText: 'Password'),
               const SizedBox(height: 10,),
               if (errorMessage != null)
                 Text(
@@ -77,9 +77,42 @@ class _loginScreenState extends State<loginScreen> {
                   ),
                 ),
               const SizedBox(height: 25),
-              OrangeButton(onPressed: (){
-                signInWithEmailAndPassword(context);
-              }, buttonText: 'Login'),
+              MainActionButton(
+                text: 'Login',
+                onTap: () async {
+                  if (_email.text.isEmpty ||
+                      _pwd.text.isEmpty) {
+
+                    ScaffoldMessenger.of(context).showSnackBar(
+                      const SnackBar(
+                        content: Text('Please fill all the fields'),
+                      ),
+                    );
+                    return;
+                  }
+                  try {
+                    await FirebaseAuth.instance
+                        .signInWithEmailAndPassword(
+                      email: _email.text,
+                      password: _pwd.text,
+                    );
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => HomeScreenPage()));
+                  } catch (e) {
+
+                    print(
+                        'Login failed: $e');
+                    ScaffoldMessenger.of(context).showSnackBar(
+                      SnackBar(
+                        content: Text('Invalid login, please try again !!'),
+
+                      ),
+                    );
+                  }
+                },
+              ),
               const SizedBox(height: 20),
               const signInmethods(),
               Row(
@@ -249,4 +282,38 @@ class signInmethods extends StatelessWidget {
   }
 }
 
+class MainActionButton extends StatelessWidget {
+  const MainActionButton({
+    super.key,
+    required this.text,
+    required this.onTap,
+  });
 
+  final String text;
+  final Function onTap;
+
+  @override
+  Widget build(BuildContext context) {
+    return SizedBox(
+      width: double.infinity,
+      height: 60,
+      child: ElevatedButton(
+        onPressed: () {
+          onTap();
+        },
+        style: ButtonStyle(
+            backgroundColor:
+            MaterialStateProperty.all<Color>(const Color(0xFF005EA3)),
+            shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+                RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(18.0),
+                    side: BorderSide.none))),
+        child: Text(
+          text,
+          style: const TextStyle(
+              fontSize: 18.0, fontWeight: FontWeight.bold, color: Colors.white),
+        ),
+      ),
+    );
+  }
+}
