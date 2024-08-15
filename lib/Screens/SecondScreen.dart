@@ -57,12 +57,13 @@ class _splashSecondState extends State<splashSecond> {
             },
           ),
 
+
           AnimatedPositioned(
 
             duration: const Duration(seconds: 2),
 
             curve: Curves.easeIn,
-            top: _isVisible ? 0 : height-height*0.7,
+            top: _isVisible ? 0 : height-height*0.75,
             child: SizedBox(
               height: height,
               width: width*0.55,
@@ -72,16 +73,18 @@ class _splashSecondState extends State<splashSecond> {
             ),
           ),
 
+
           AnimatedOpacity(
 
             duration: const Duration(seconds: 2),
 
             opacity: _isVisible ? 0 : 1,
             child: Padding(
-              padding: EdgeInsets.only(top: height*0.82),
+              padding: EdgeInsets.only(top: height*0.78),
               child: Column(
                 children: [
                   const Text("Your Trusted AI Dermatologist",style: TextStyle(color: Colors.white,fontSize: 12),),
+                  SizedBox(height: 20),
                   SizedBox(
                     height: 50,
                     width: 300,
