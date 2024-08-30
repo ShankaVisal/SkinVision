@@ -139,7 +139,7 @@ class _loginScreenState extends State<loginScreen> {
       ),
     );
   }
-  
+
 }
 
 class OrangeButton extends StatelessWidget {
@@ -295,19 +295,20 @@ class MainActionButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      width: double.infinity,
-      height: 60,
+      width: MediaQuery.of(context).size.width * 0.8,
+      height: MediaQuery.of(context).size.height * 0.07,
       child: ElevatedButton(
         onPressed: () {
           onTap();
         },
-        style: ButtonStyle(
-            backgroundColor:
-            MaterialStateProperty.all<Color>(const Color(0xFF005EA3)),
-            shape: MaterialStateProperty.all<RoundedRectangleBorder>(
-                RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(18.0),
-                    side: BorderSide.none))),
+          style: ElevatedButton.styleFrom(
+            backgroundColor: const Color(0xffEFA885), // background color
+            elevation: 4, // elevation
+            shadowColor: Colors.orangeAccent, // shadow color
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(25), // border radius
+            ),
+          ),
         child: Text(
           text,
           style: const TextStyle(

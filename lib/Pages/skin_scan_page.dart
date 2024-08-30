@@ -100,6 +100,8 @@ class _SkinScanPageState extends State<SkinScanPage> {
 
 import 'package:camera/camera.dart';
 import 'package:flutter/material.dart';
+import 'package:untitled5/Pages/home_screen_page.dart';
+import 'package:untitled5/Pages/under_developing_page.dart';
 
 class SkinScanPage extends StatefulWidget {
   const SkinScanPage({Key? key}) : super(key: key);
@@ -141,32 +143,104 @@ class _SkinScanPageState extends State<SkinScanPage> with TickerProviderStateMix
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        bottom: TabBar(
-          controller: _tabController,
-          tabs: const [
-            Tab(text: 'Normal'),
-            Tab(text: 'Disease'),
-          ],
-        ),
-      ),
-      body: TabBarView(
-        controller: _tabController,
-        children: [
-          // Normal tab content
-          Center(
-            child: Text(
-              'Normal Tab Content',
-              style: TextStyle(fontSize: 20),
+    double height = MediaQuery.of(context).size.height;
+    double width = MediaQuery.of(context).size.width;
+    return Stack(
+      children: [
+        Scaffold(
+          appBar: AppBar(
+            bottom: TabBar(
+              controller: _tabController,
+              tabs: const [
+                Tab(text: 'Normal'),
+                Tab(text: 'Disease'),
+              ],
             ),
           ),
-          // Disease tab content
-          Center(
-            child: _buildCameraPreview(),
+          body: TabBarView(
+            controller: _tabController,
+            children: [
+              // Normal tab content
+              Center(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      SizedBox(
+                          width: width/2,
+                          child: Image.asset("assets/develop.jpg")
+                      ),
+                      SizedBox(height: 10),
+                      Text("We are under developing now.."),
+                    ],
+                  )
+              ),
+
+              // Disease tab content
+              Center(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      SizedBox(
+                          width: width/2,
+                          child: Image.asset("assets/develop.jpg")
+                      ),
+                      SizedBox(height: 10),
+                      Text("We are under developing now.."),
+                    ],
+                  )
+              ),
+            ],
           ),
-        ],
-      ),
+          bottomNavigationBar: SizedBox(
+            height: 80,
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Row(
+                  children: [
+                    _buildIconButton(context, "assets/IconImages/HomeIcon.png", HomeScreenPage()),
+                    _buildIconButton(context, "assets/IconImages/userIcon.png", underDevelopingPage()),
+                  ],
+                ),
+                Row(
+                  children: [
+                    _buildIconButton(context, "assets/IconImages/infoIcon.png", underDevelopingPage()),
+                    _buildIconButton(context, "assets/IconImages/notificationIcon.png", underDevelopingPage()),
+                  ],
+                ),
+              ],
+            ),
+          ),
+        ),
+        Positioned(
+          bottom: 35,
+          left: MediaQuery.of(context).size.width / 2 - 35,
+          child: SizedBox(
+            width: 70,
+            height: 70,
+            child: FloatingActionButton(
+              backgroundColor: const Color.fromARGB(255, 37, 37, 37),
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => SkinScanPage()),
+                );
+              },
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(30),
+              ),
+              child: Image.asset(
+                "assets/IconImages/scan_Icon.png",
+                width: 30,
+                height: 30,
+                color: Colors.white,
+              ),
+            ),
+          ),
+        ),
+      ],
     );
   }
 
@@ -187,4 +261,22 @@ class _SkinScanPageState extends State<SkinScanPage> with TickerProviderStateMix
     },
   );
 }
+  Widget _buildIconButton(BuildContext context, String assetPath, Widget destinationPage) {
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 18.0),
+      child: IconButton(
+        icon: Image.asset(
+          assetPath,
+          width: 30,
+          height: 30,
+        ),
+        onPressed: () {
+          Navigator.push(
+            context,
+            MaterialPageRoute(builder: (context) => destinationPage),
+          );
+        },
+      ),
+    );
+  }
 }

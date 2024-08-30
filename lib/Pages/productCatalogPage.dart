@@ -2,6 +2,9 @@ import 'dart:convert';
 
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:untitled5/Pages/home_screen_page.dart';
+import 'package:untitled5/Pages/skin_scan_page.dart';
+import 'package:untitled5/Pages/under_developing_page.dart';
 
 class ProductCatalogPage extends StatefulWidget {
   const ProductCatalogPage({super.key});
@@ -208,14 +211,19 @@ class _ProductCatalogPageState extends State<ProductCatalogPage> {
                 children: [
                   Row(
                     children: [
-                      _buildIconButton("assets/IconImages/HomeIcon.png"),
-                      _buildIconButton("assets/IconImages/userIcon.png"),
+                      _buildIconButton(context, "assets/IconImages/HomeIcon.png",
+                          HomeScreenPage()),
+                      _buildIconButton(context, "assets/IconImages/userIcon.png",
+                          underDevelopingPage()),
                     ],
                   ),
                   Row(
                     children: [
-                      _buildIconButton("assets/IconImages/infoIcon.png"),
-                      _buildIconButton("assets/IconImages/notificationIcon.png"),
+                      _buildIconButton(context, "assets/IconImages/infoIcon.png",
+                          underDevelopingPage()),
+                      _buildIconButton(
+                          context, "assets/IconImages/notificationIcon.png",
+                          underDevelopingPage()),
                     ],
                   ),
                 ],
@@ -224,13 +232,21 @@ class _ProductCatalogPageState extends State<ProductCatalogPage> {
           ),
           Positioned(
             bottom: 35,
-            left: MediaQuery.of(context).size.width / 2 - 35,
+            left: MediaQuery
+                .of(context)
+                .size
+                .width / 2 - 35,
             child: SizedBox(
               width: 70,
               height: 70,
               child: FloatingActionButton(
                 backgroundColor: const Color.fromARGB(255, 37, 37, 37),
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => SkinScanPage()),
+                  );
+                },
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(30),
                 ),
@@ -243,22 +259,28 @@ class _ProductCatalogPageState extends State<ProductCatalogPage> {
               ),
             ),
           ),
-        ]
-
+        ],
     );
   }
-}
 
-Widget _buildIconButton(String assetPath) {
-  return Padding(
-    padding: const EdgeInsets.symmetric(horizontal: 18.0),
-    child: IconButton(
-      icon: Image.asset(
-        assetPath,
-        width: 30,
-        height: 30,
+  Widget _buildIconButton(BuildContext context, String assetPath,
+      Widget destinationPage) {
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 18.0),
+      child: IconButton(
+        icon: Image.asset(
+          assetPath,
+          width: 30,
+          height: 30,
+        ),
+        onPressed: () {
+          Navigator.push(
+            context,
+            MaterialPageRoute(builder: (context) => destinationPage),
+          );
+        },
       ),
-      onPressed: () {},
-    ),
-  );
+    );
+  }
+
 }

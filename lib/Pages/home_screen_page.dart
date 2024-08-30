@@ -3,6 +3,7 @@ import 'package:flutter/widgets.dart';
 import 'package:untitled5/Pages/dermatologistsPage.dart';
 import 'package:untitled5/Pages/goPremiumPage.dart';
 import 'package:untitled5/Pages/productCatalogPage.dart';
+import 'package:untitled5/Pages/under_developing_page.dart';
 
 import 'skin_scan_page.dart';
 
@@ -112,14 +113,14 @@ class _HomeScreenPageState extends State<HomeScreenPage> {
               children: [
                 Row(
                   children: [
-                    _buildIconButton("assets/IconImages/HomeIcon.png"),
-                    _buildIconButton("assets/IconImages/userIcon.png"),
+                    _buildIconButton(context, "assets/IconImages/HomeIcon.png", HomeScreenPage()),
+                    _buildIconButton(context, "assets/IconImages/userIcon.png", underDevelopingPage()),
                   ],
                 ),
                 Row(
                   children: [
-                    _buildIconButton("assets/IconImages/infoIcon.png"),
-                    _buildIconButton("assets/IconImages/notificationIcon.png"),
+                    _buildIconButton(context, "assets/IconImages/infoIcon.png", underDevelopingPage()),
+                    _buildIconButton(context, "assets/IconImages/notificationIcon.png", underDevelopingPage()),
                   ],
                 ),
               ],
@@ -134,7 +135,12 @@ class _HomeScreenPageState extends State<HomeScreenPage> {
             height: 70,
             child: FloatingActionButton(
               backgroundColor: const Color.fromARGB(255, 37, 37, 37),
-              onPressed: () {},
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => SkinScanPage()),
+                );
+              },
               shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(30),
               ),
@@ -151,7 +157,7 @@ class _HomeScreenPageState extends State<HomeScreenPage> {
     );
   }
 
-  Widget _buildIconButton(String assetPath) {
+  Widget _buildIconButton(BuildContext context, String assetPath, Widget destinationPage) {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 18.0),
       child: IconButton(
@@ -160,10 +166,16 @@ class _HomeScreenPageState extends State<HomeScreenPage> {
           width: 30,
           height: 30,
         ),
-        onPressed: () {},
+        onPressed: () {
+          Navigator.push(
+            context,
+            MaterialPageRoute(builder: (context) => destinationPage),
+          );
+        },
       ),
     );
   }
+
 
   homePageActionTiles(
     BuildContext context,

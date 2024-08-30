@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:untitled5/Pages/home_screen_page.dart';
+import 'package:untitled5/Pages/skin_scan_page.dart';
+import 'package:untitled5/Pages/under_developing_page.dart';
 
 class GoPremiumPage extends StatefulWidget {
   const GoPremiumPage({super.key});
@@ -10,9 +13,14 @@ class GoPremiumPage extends StatefulWidget {
 class _GoPremiumPageState extends State<GoPremiumPage> {
   @override
   Widget build(BuildContext context) {
-
-    double height = MediaQuery.of(context).size.height;
-    double width = MediaQuery.of(context).size.width;
+    double height = MediaQuery
+        .of(context)
+        .size
+        .height;
+    double width = MediaQuery
+        .of(context)
+        .size
+        .width;
     return Stack(
       children: [
         Scaffold(
@@ -35,7 +43,7 @@ class _GoPremiumPageState extends State<GoPremiumPage> {
                 child: Column(
                   children: [
                     Padding(
-                      padding: const EdgeInsets.only(left: 30,right: 30),
+                      padding: const EdgeInsets.only(left: 30, right: 30),
                       child: Column(
                         children: [
                           SizedBox(
@@ -43,9 +51,11 @@ class _GoPremiumPageState extends State<GoPremiumPage> {
                           ),
                           Row(
                             children: [
-                              SizedBox(width: 30,child: Image.asset('assets/done.png'),),
+                              SizedBox(width: 30,
+                                child: Image.asset('assets/done.png'),),
                               SizedBox(width: 5,),
-                              Text('Monthly Summery',style: TextStyle(fontSize: 16),),
+                              Text('Monthly Summery',
+                                style: TextStyle(fontSize: 16),),
                             ],
                           ),
                           SizedBox(
@@ -53,9 +63,11 @@ class _GoPremiumPageState extends State<GoPremiumPage> {
                           ),
                           Row(
                             children: [
-                              SizedBox(width: 30,child: Image.asset('assets/done.png'),),
+                              SizedBox(width: 30,
+                                child: Image.asset('assets/done.png'),),
                               SizedBox(width: 5,),
-                              Text('Advance analysis report',style: TextStyle(fontSize: 16),),
+                              Text('Advance analysis report',
+                                style: TextStyle(fontSize: 16),),
                             ],
                           ),
                           SizedBox(
@@ -63,9 +75,10 @@ class _GoPremiumPageState extends State<GoPremiumPage> {
                           ),
                           Row(
                             children: [
-                              SizedBox(width: 30,child: Image.asset('assets/done.png'),),
+                              SizedBox(width: 30,
+                                child: Image.asset('assets/done.png'),),
                               SizedBox(width: 5,),
-                              Text('Ad free',style: TextStyle(fontSize: 16),),
+                              Text('Ad free', style: TextStyle(fontSize: 16),),
                             ],
                           ),
                           SizedBox(
@@ -73,9 +86,11 @@ class _GoPremiumPageState extends State<GoPremiumPage> {
                           ),
                           Row(
                             children: [
-                              SizedBox(width: 30,child: Image.asset('assets/done.png'),),
+                              SizedBox(width: 30,
+                                child: Image.asset('assets/done.png'),),
                               SizedBox(width: 5,),
-                              Text('Advanced Product Recommendations',style: TextStyle(fontSize: 16),),
+                              Text('Advanced Product Recommendations',
+                                style: TextStyle(fontSize: 16),),
                             ],
                           ),
                           SizedBox(
@@ -83,9 +98,11 @@ class _GoPremiumPageState extends State<GoPremiumPage> {
                           ),
                           Row(
                             children: [
-                              SizedBox(width: 30,child: Image.asset('assets/done.png'),),
+                              SizedBox(width: 30,
+                                child: Image.asset('assets/done.png'),),
                               SizedBox(width: 5,),
-                              Text('Advanced Analysis Report',style: TextStyle(fontSize: 16),),
+                              Text('Advanced Analysis Report',
+                                style: TextStyle(fontSize: 16),),
                             ],
                           ),
                           SizedBox(
@@ -93,9 +110,11 @@ class _GoPremiumPageState extends State<GoPremiumPage> {
                           ),
                           Row(
                             children: [
-                              SizedBox(width: 30,child: Image.asset('assets/done.png'),),
+                              SizedBox(width: 30,
+                                child: Image.asset('assets/done.png'),),
                               SizedBox(width: 5,),
-                              Text('Contact doctor through the application',style: TextStyle(fontSize: 16),),
+                              Text('Contact doctor through the application',
+                                style: TextStyle(fontSize: 16),),
                             ],
                           ),
 
@@ -114,7 +133,7 @@ class _GoPremiumPageState extends State<GoPremiumPage> {
                       ),
                     ),
                     SizedBox(
-                      height: 15,
+                      height: 25,
                     ),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.center,
@@ -146,16 +165,16 @@ class _GoPremiumPageState extends State<GoPremiumPage> {
                       ],
                     ),
                     SizedBox(
-                      height: 15,
+                      height: 20,
                     ),
                     SizedBox(
-                      width: width*0.8,
+                      width: width * 0.8,
                       child: FloatingActionButton(
                         shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(25),
                         ),
                         backgroundColor: Colors.black,
-                        onPressed: (){},
+                        onPressed: () {},
                         child: Text(
                           'Get Premium',
                           style: TextStyle(
@@ -178,14 +197,19 @@ class _GoPremiumPageState extends State<GoPremiumPage> {
               children: [
                 Row(
                   children: [
-                    _buildIconButton("assets/IconImages/HomeIcon.png"),
-                    _buildIconButton("assets/IconImages/userIcon.png"),
+                    _buildIconButton(context, "assets/IconImages/HomeIcon.png",
+                        HomeScreenPage()),
+                    _buildIconButton(context, "assets/IconImages/userIcon.png",
+                        underDevelopingPage()),
                   ],
                 ),
                 Row(
                   children: [
-                    _buildIconButton("assets/IconImages/infoIcon.png"),
-                    _buildIconButton("assets/IconImages/notificationIcon.png"),
+                    _buildIconButton(context, "assets/IconImages/infoIcon.png",
+                        underDevelopingPage()),
+                    _buildIconButton(
+                        context, "assets/IconImages/notificationIcon.png",
+                        underDevelopingPage()),
                   ],
                 ),
               ],
@@ -194,13 +218,21 @@ class _GoPremiumPageState extends State<GoPremiumPage> {
         ),
         Positioned(
           bottom: 35,
-          left: MediaQuery.of(context).size.width / 2 - 35,
+          left: MediaQuery
+              .of(context)
+              .size
+              .width / 2 - 35,
           child: SizedBox(
             width: 70,
             height: 70,
             child: FloatingActionButton(
               backgroundColor: const Color.fromARGB(255, 37, 37, 37),
-              onPressed: () {},
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => SkinScanPage()),
+                );
+              },
               shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(30),
               ),
@@ -213,22 +245,28 @@ class _GoPremiumPageState extends State<GoPremiumPage> {
             ),
           ),
         ),
-      ]
-
+      ],
     );
   }
-}
 
-Widget _buildIconButton(String assetPath) {
-  return Padding(
-    padding: const EdgeInsets.symmetric(horizontal: 18.0),
-    child: IconButton(
-      icon: Image.asset(
-        assetPath,
-        width: 30,
-        height: 30,
+  Widget _buildIconButton(BuildContext context, String assetPath,
+      Widget destinationPage) {
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 18.0),
+      child: IconButton(
+        icon: Image.asset(
+          assetPath,
+          width: 30,
+          height: 30,
+        ),
+        onPressed: () {
+          Navigator.push(
+            context,
+            MaterialPageRoute(builder: (context) => destinationPage),
+          );
+        },
       ),
-      onPressed: () {},
-    ),
-  );
+    );
+  }
+
 }
